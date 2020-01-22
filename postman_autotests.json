@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "87dad145-2d25-4676-ba20-30f9b807e915",
+		"name": "Autotests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Response time",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fdcf78ff-e3c5-4250-9c0c-2dc254a21ab7",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(964);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "www.pogoda.by",
+					"host": [
+						"www",
+						"pogoda",
+						"by"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Status code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a2b7aa48-be48-4877-a6c5-4eb9ec96f196",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "www.av.by",
+					"host": [
+						"www",
+						"av",
+						"by"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Content type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d68b9559-54f2-451f-9049-f458aa232c89",
+						"exec": [
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "www.21vek.by",
+					"host": [
+						"www",
+						"21vek",
+						"by"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
